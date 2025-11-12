@@ -1,9 +1,10 @@
-
+// device_controller.cpp
+// Реализация контроллера устройств
 #include "device_controller.h"
 #include <iostream>
 #include <iomanip>
 #include <cmath>
-#include <algorithm>  // важно для std::sort / std::stable_sort
+#include <algorithm> 
 
 DeviceController::DeviceController() 
     : totalEnergyForCharging(0.0) {}
@@ -82,10 +83,9 @@ void DeviceController::chargeDevicesThatNeedIt() {
     }
     
     // НОВОЕ: Сортируем устройства по приоритету (от высокого к низкому)
-    // Используем stable_sort, чтобы сохранить исходный порядок у одинаковых приоритетов.
-    std::stable_sort(devicesToCharge.begin(), devicesToCharge.end(), 
+    std::stable_sort(devicesToCharge.begin(), devicesToCharge.end(),
         [](const std::pair<size_t,int>& a, const std::pair<size_t,int>& b) {
-            return a.second > b.second; // Сортировка по убыванию приоритета
+        return a.second > b.second;
         });
     
     // НОВОЕ: Показываем порядок зарядки
@@ -93,24 +93,19 @@ void DeviceController::chargeDevicesThatNeedIt() {
     
     // НОВОЕ: Заряжаем устройства в порядке приоритета
     for (const auto& pr : devicesToCharge) {
-        size_t index = pr.first;
-        int priority = pr.second;
-
-        auto& device = devices[index];
-        double batteryBefore = device->getCurrentBatteryPercent();
-        
-        if (device->needToBeCharged()) {
-            double energyUsed = device->chargeToFull();
-            totalEnergyForCharging += energyUsed;
-            
-            double batteryAfter = device->getCurrentBatteryPercent();
-            
-            // НОВОЕ: Детальная информация о процессе зарядки
-            std::cout << "  ⚡ Заряжено: \"" << device->getName() 
-                      << "\" (приоритет " << priority << ") - "
-                      << std::fixed << std::setprecision(1) << batteryBefore 
-                      << "% → " << batteryAfter << "%"
-                      << ", использовано энергии: " << energyUsed << " Вт·ч" << std::endl;
+    size_t index = pr.first;
+    int    priority = pr.second;
+    auto& device = devices[index];
+    double batteryBefore = device->getCurrentBatteryPercent();
+    if (device->needToBeCharged()) {
+        double energyUsed = device->chargeToFull();
+        totalEnergyForCharging += energyUsed;
+        double batteryAfter = device->getCurrentBatteryPercent();
+        std::cout << "  ⚡ Заряжено: \"" << device->getName()
+                  << "\" (приоритет " << priority << ") - "
+                  << std::fixed << std::setprecision(1) << batteryBefore
+                  << "% → " << batteryAfter << "%, использовано энергии: "
+                  << energyUsed << " Вт·ч" << std::endl;
         }
     }
     
