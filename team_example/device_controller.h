@@ -34,6 +34,10 @@ public:
      * Включить все устройства
      */
     void turnOnAllDevices();
+    /**
+     * findDeviceByName
+     */
+    void findDeviceByName();
 
     /**
      * Выключить все устройства

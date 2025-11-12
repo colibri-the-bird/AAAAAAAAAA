@@ -86,6 +86,6 @@ double Device::getCurrentBatteryPercent() const {
 }
 
 bool Device::needToBeCharged() const {
-    return currentBattery < maxBattery * 0.2; // Если заряд меньше 20%, то нужно заряжать
+    return currentBattery < maxBattery * 0.5; // Если заряд меньше 50%, то нужно заряжать
 }
 
