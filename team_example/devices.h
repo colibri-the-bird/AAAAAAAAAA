@@ -57,3 +57,14 @@ public:
 };
 
 
+/**
+ * SmartSpeaker
+ */
+class SmartSpeaker : public Device {
+public:
+    SmartSpeaker();
+    std::string getDescription() const override;
+    void printStatus() const override;
+    void simulateDay() override;
+};
+

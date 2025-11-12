@@ -1,11 +1,7 @@
 // device_factory.cpp
 // Реализация фабрики устройств
 #include "device_factory.h"
-#include "lamp_device.h"
-#include "coffee_maker.h"
-#include "robot_vacuum.h"
-#include "smart_thermostat.h"
-#include "smart_speaker.h"
+#include "devices.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
