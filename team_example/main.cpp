@@ -68,6 +68,8 @@ int main() {
     std::cout << "║                 СИМУЛЯЦИЯ ЗАВЕРШЕНА                         ║" << std::endl;
     std::cout << "╚════════════════════════════════════════════════════════════╝\n" << std::endl;
     return 0;
+
+    controller.findDeviceByName();
 }
 
 /* 
