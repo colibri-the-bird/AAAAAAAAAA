@@ -64,12 +64,14 @@ int main() {
 
     controller.printEnergyReport();
 
+        // ========== ПОИСК ПО ИМЕНИ ==========
+    std::cout << "\n>>> Поиск устройства по имени:" << std::endl;
+    controller.findDeviceByName();
+
     std::cout << "\n╔════════════════════════════════════════════════════════════╗" << std::endl;
     std::cout << "║                 СИМУЛЯЦИЯ ЗАВЕРШЕНА                         ║" << std::endl;
     std::cout << "╚════════════════════════════════════════════════════════════╝\n" << std::endl;
    
-
-    controller.findDeviceByName();
       return 0;
 }
 
