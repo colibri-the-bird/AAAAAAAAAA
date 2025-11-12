@@ -20,15 +20,16 @@ int main() {
     DeviceController controller;
 
     // ========== СОЗДАНИЕ УСТРОЙСТВ ЧЕРЕЗ ФАБРИКУ ==========
-    std::cout << "\n>>> Создание устройств через DeviceFactory::createDeviceByName()..." << std::endl;
-    
-   // Создаем 3 лампы и 1 фен через фабрику (по заданию)
-   controller.addDevice(DeviceFactory::createDeviceByName("Lamp"));
-   controller.addDevice(DeviceFactory::createDeviceByName("Lamp"));
-   controller.addDevice(DeviceFactory::createDeviceByName("Lamp"));
-   //controller.addDevice(DeviceFactory::createDeviceByName("HairDryer"));
+   std::cout << "\n>>> Создание устройств через DeviceFactory::createDeviceByName()..." << std::endl;
 
-    std::cout << "\n✓ Создано " << controller.getDeviceCount() << " устройств" << std::endl;
+// Создаем разнообразные устройства через фабрику
+   controller.addDevice(DeviceFactory::createDeviceByName("Lamp"));
+   controller.addDevice(DeviceFactory::createDeviceByName("CoffeeMaker"));
+   controller.addDevice(DeviceFactory::createDeviceByName("RobotVacuum"));
+   controller.addDevice(DeviceFactory::createDeviceByName("SmartThermostat"));
+   controller.addDevice(DeviceFactory::createDeviceByName("SmartSpeaker"));
+
+   std::cout << "\n✓ Создано " << controller.getDeviceCount() << " устройств" << std::endl;
 
     // ========== ВЫВОД ОПИСАНИЯ УСТРОЙСТВ ==========
     controller.printDevicesDescription();

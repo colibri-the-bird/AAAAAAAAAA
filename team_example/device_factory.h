@@ -6,12 +6,12 @@
 /**
  * Фабрика для создания устройств
  * 
- * TODO: Реализовать функции:
- * 1. createRandomDevice() - создать случайное устройство
- * 2. createDeviceByName(const std::string& name) - создать устройство по названию
- * 
- * Подсказка: Используйте std::make_unique для создания unique_ptr устройств
- * Для random можно использовать С-функции rand()/srand или <random>
+ * Поддерживаемые устройства:
+ * - "Lamp" - Лампа
+ * - "CoffeeMaker" - Кофеварка  
+ * - "RobotVacuum" - Робот-пылесос
+ * - "SmartThermostat" - Умный термостат
+ * - "SmartSpeaker" - Умная колонка
  */
 class DeviceFactory {
 public:
@@ -23,7 +23,8 @@ public:
 
     /**
      * Создать устройство по названию
-     * @param name Название устройства: "Lamp", "CoffeeMaker", "Refrigerator", "HairDryer", "RobotVacuum"
+     * @param name Название устройства: "Lamp", "CoffeeMaker", "RobotVacuum", 
+     *             "SmartThermostat", "SmartSpeaker"
      */
     static std::unique_ptr<Device> createDeviceByName(const std::string& name);
 };

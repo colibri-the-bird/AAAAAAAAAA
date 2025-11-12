@@ -37,13 +37,23 @@ public:
 /**
  * РоБоТ ПыЛеСоС
  */
-class VacuumBot : public Device {
+class RobotVacuum : public Device {
 public:
-    VacuumBot();
+    RobotVacuum();
     std::string getDescription() const override;
     void printStatus() const override;
     void simulateDay() override;
 };
 
+/**
+ * Умный термостат - низкое потребление, постоянная работа
+ */
+class SmartThermostat : public Device {
+public:
+    SmartThermostat();
+    std::string getDescription() const override;
+    void printStatus() const override;
+    void simulateDay() override;
+};
 
 
